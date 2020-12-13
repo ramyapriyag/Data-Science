@@ -1,0 +1,11 @@
+#Function: Identifies the data types from a given data frame. returns numeric, categorical variables
+def identifyDtypes(data, var_list, num_dtype_list=['float64', 'float32', 'int32', 'int64', 'double', "bool"], cat_dtype=['object']):
+    xvar_list_dtypes = dict(data[var_list].dtypes)
+    xvar_numeric = []
+    xvar_cat = []
+    for key in xvar_list_dtypes:
+        if xvar_list_dtypes[key] in num_dtype_list:
+            xvar_numeric.append(key)
+        elif xvar_list_dtypes[key] in cat_dtype:
+            xvar_cat.append(key)
+    return xvar_cat, xvar_numeric
